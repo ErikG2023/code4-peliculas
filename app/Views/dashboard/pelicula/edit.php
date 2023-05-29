@@ -10,9 +10,9 @@
 
 <body>
 
-    <form action="/pelicula/update/<?= $pelicula['id'] ?>" method="post">
+    <form action="/dashboard/pelicula/update/<?= $pelicula['id'] ?>" method="post">
 
-        <?= view('pelicula/_forms',['op'=>'Actualizar']) ?>
+        <?= view('dashboard/pelicula/_forms',['op'=>'Actualizar']) ?>
 
     </form> 
 

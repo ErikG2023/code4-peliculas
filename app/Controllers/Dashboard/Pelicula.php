@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
+use App\Controllers\BaseController;
 use App\Models\PeliculaModel;
-use JetBrains\PhpStorm\Internal\ReturnTypeContract;
 
 class Pelicula extends BaseController{
 
@@ -14,14 +14,14 @@ class Pelicula extends BaseController{
 
         
         
-        Return view('pelicula/index',[
+        echo view('dashboard/pelicula/index',[
             'peliculas' => $peliculaModel->findAll()
         ]);
     }
 
     public function new()
     {
-        echo view('pelicula/new',[
+        echo view('dashboard/pelicula/new',[
             'pelicula' =>[
                 'titulo'=> '',
                 'descripcion' => ''
@@ -35,14 +35,7 @@ class Pelicula extends BaseController{
     {
         $peliculaModel = new PeliculaModel();
 
-        
-        
-        // Return view('index',[
-        //     'peliculas' => $peliculaModel->find($id)
-        // ]);
-
-        // var_dump($peliculaModel->find($id));
-        echo view('pelicula/show',[
+        echo view('dashboard/pelicula/show',[
             'pelicula' => $peliculaModel->find($id)
         ]);
             
@@ -56,7 +49,7 @@ class Pelicula extends BaseController{
             'descripcion' =>$this->request->getPost('descripcion')
         ]);
 
-            echo 'Creado';
+        return redirect()->to('/dashboard/pelicula');
     }
 
     public function edit($id)
@@ -64,7 +57,7 @@ class Pelicula extends BaseController{
         $peliculaModel = new PeliculaModel();
         $peliculaModel->find($id);
 
-        echo view('pelicula/edit',[
+        echo view('dashboard/pelicula/edit',[
             'pelicula'=> $peliculaModel->find($id)
         ]);
     }
@@ -77,7 +70,7 @@ class Pelicula extends BaseController{
             'discripcion' => $this->request->getPost('discripcion')
 
         ]);
-        echo 'update';
+        return redirect()->to('/dashboard/pelicula');
     }
 
 
@@ -85,6 +78,6 @@ class Pelicula extends BaseController{
     {
         $peliculaModel = new PeliculaModel();
         $peliculaModel->delete($id);
-        echo 'delete';
+        return redirect()->to('/dashboard/pelicula');
     }
 }

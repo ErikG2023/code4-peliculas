@@ -10,9 +10,9 @@
 
 <body>
 
-    <form action="/pelicula/create" method="post">
+    <form action="/dashboard/pelicula/create" method="post">
 
-        <?= view('pelicula/_forms', ['op' => 'Crear']) ?>
+        <?= view('dashboard/pelicula/_forms', ['op' => 'Crear']) ?>
 
     </form>
 
