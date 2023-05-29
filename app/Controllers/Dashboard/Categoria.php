@@ -35,7 +35,7 @@ class Categoria extends BaseController
             'titulo' => $this->request->getPost('titulo'),
         ]);
 
-        return redirect()->to('/dashboard/categoria');
+        return redirect()->to('/dashboard/categoria')->with('mensaje','Registro ingresado correctamente');
     }
 
     public function show($id)
@@ -64,12 +64,12 @@ class Categoria extends BaseController
             'titulo' => $this->request->getPost('titulo'),
 
         ]);
-        return redirect()->to('/dashboard/categoria');
+        return redirect()->to('/dashboard/categoria')->with('mensaje','Registro Actualizado correctamente');
     }
     public function delete($id)
     {
         $categoriaModel = new CategoriaModel();
         $categoriaModel->delete($id);
-        return redirect()->to('/dashboard/categoria');
+        return redirect()->to('/dashboard/categoria')->with('mensaje','Registro Eliminado correctamente');
     }
 }

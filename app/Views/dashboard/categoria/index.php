@@ -10,7 +10,7 @@
     <h1>Listado de Categorias</h1>
     <a href="/dashboard/categoria/new">Nuevo</a>
 
-
+    <?= view('partials/_session') ?>
     <table>
         <tr>
             <td>Titulo</td>
