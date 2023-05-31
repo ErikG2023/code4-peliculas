@@ -39,9 +39,16 @@ $routes->group('dashboard',function($routes){
     
     $routes->presenter('pelicula',['controller' => 'Dashboard\Pelicula']);
     $routes->presenter('categoria',['controller' => 'Dashboard\Categoria']);
+    $routes->get('usuario/crear','\App\Controllers\Web\Usuario::crear_usuario');
 });
 
+$routes->get('login','\App\Controllers\Web\Usuario::login',['as'=>'usuario.login']);
+$routes->post('login_post','\App\Controllers\Web\Usuario::login_post',['as'=>'usuario.login_post']);
 
+$routes->get('register','\App\Controllers\Web\Usuario::register',['as'=>'usuario.register']);
+$routes->post('register_post','\App\Controllers\Web\Usuario::register_post',['as'=>'usuario.register_post']);
+
+$routes->get('logout','\App\Controllers\Web\Usuario::logout',['as'=>'usuario.logout']);
 /*
  * --------------------------------------------------------------------
  * Additional Routing
